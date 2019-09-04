@@ -1,0 +1,10 @@
+CREATE PROCEDURE HapusPengingat(IN id_kegiatan VARCHAR(10))
+BEGIN
+        DELETE FROM nama_kegiatan WHERE id_user = id_kegiatan;
+        DELETE FROM lama_kegiatan WHERE id_user = id_kegiatan;
+        DELETE FROM jaduwal_kegiatan WHERE id_user = id_kegiatan;
+END;
+
+DELIMITER ;
+
+CALL HapusPengingat('dsa');

@@ -1,0 +1,45 @@
+/* 1. ini ddl nya */
+
+CREATE TABLE USERS
+(
+id_user varchar(20),
+pasword varchar(10),
+CONSTRAINT user_pk PRIMARY KEY (id_user) ENABLE
+);
+
+CREATE TABLE LISTS
+(
+id_list varchar(10),
+nama_list varchar(50),
+nama_item varchar(50),
+id_user varchar(10),
+CONSTRAINT list_pk PRIMARY KEY (id_list) ENABLE,
+CONSTRAINT list_fk FOREIGN KEY (id_user) REFERENCES USERS (id_user)
+ON DELETE CASCADE
+);
+
+CREATE TABLE PENGINGAT
+(
+id_kegiatan varchar(10),
+nama_kegiatan varchar(50),
+lama_kegiatan char(10),
+jaduwal_kegiatan varchar(10),
+id_user varchar(10),
+CONSTRAINT pengingat_pk PRIMARY KEY (id_kegiatan) ENABLE,
+CONSTRAINT pengingat_fk FOREIGN KEY (id_user) REFERENCES USERS (id_user)
+ON DELETE CASCADE
+);
+
+/* 2 ini dml (insert) */
+/*INSERT USER*/
+INSERT INTO USERS VALUES('123','adadads');
+INSERT INTO USERS VALUES('231','adsas');
+INSERT INTO USERS VALUES('321','adwadasd');
+/*INSERT LISTS*/
+INSERT INTO LISTS VALUES('A123','belanja','angur,melon,terong','123');
+INSERT INTO LISTS VALUES('B123','mainan','mobil,gasing,yoyo','321');
+INSERT INTO LISTS VALUES('C123','alat tulis','spidol,penyerut,pensil','231');
+/*INSERT PENGINGAT*/
+INSERT INTO PENGINGAT VALUES('asd','main',60,'5-9-2019','123');
+INSERT INTO PENGINGAT VALUES('dsa','belajar',50,'3-9-2019','321');
+INSERT INTO PENGINGAT VALUES('sad','kerkom',30,'4-9-2019','231');

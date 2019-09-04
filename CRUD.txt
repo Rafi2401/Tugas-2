@@ -1,0 +1,12 @@
+select * from USERS;
+select * from LISTS;
+select * from PENGINGAT;
+
+Rename USERS to PENGGUNA;
+select * from PENGGUNA;
+
+update PENGGUNA set PASWORD = 'asutenan'
+where ID_USER = '123';
+
+delete PENGGUNA
+where ID_USER = '231';
